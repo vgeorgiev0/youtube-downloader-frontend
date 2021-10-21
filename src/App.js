@@ -5,7 +5,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import Download from './components/Download';
-// import Seo from './components/Seo';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 auto',
   },
   title: {
+    marginTop: '5%',
     color: 'red',
     display: 'flex',
     flexDirection: 'column',
@@ -31,23 +31,10 @@ const useStyles = makeStyles((theme) => ({
   form: {
     display: 'flex',
     flexDirection: 'column',
+    marginTop: '20%',
   },
   Button: {
-    marginTop: '8px',
-    backgroundColor: 'red',
-    color: '#fff',
-    '&:hover': {
-      backgroundColor: 'transparent',
-      color: 'red',
-    },
-  },
-  affliate: {
-    cursor: 'pointer',
-    padding: '7px',
-    color: 'blue',
-    marginTop: '14px',
-    border: '1px solid #eee',
-    textDecoration: 'none',
+    marginTop: '10%',
   },
 }));
 function useQuery() {
@@ -78,7 +65,7 @@ function App() {
   // function
   const handleSubmit = () => {
     if (url === '' || !url.includes('https') || !url.includes('yout')) {
-      alert('Please enter a Youtube URL...');
+      alert('Please enter a valid Youtube URL...');
     } else {
       if (url.includes('www')) {
         history.push(`/download?url=${url.replace('www.', '')}`);
@@ -97,7 +84,7 @@ function App() {
     <div className={classes.app} noValidate>
       <div className={classes.title} onClick={() => history.push('/')}>
         <YouTubeIcon style={{ fontSize: '128px' }} />
-        <h1 style={{ marginTop: '0px' }}>Youtube Video Downloader</h1>
+        <h1 style={{ marginTop: '0px' }}>Youtube Downloader</h1>
       </div>
       <form className={classes.form}>
         <TextField
@@ -111,7 +98,8 @@ function App() {
         />
         <Button
           onClick={handleSubmit}
-          variant='contained'
+          variant='outlined'
+          color='primary'
           className={classes.Button}
         >
           Download

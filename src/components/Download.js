@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     width: '100%',
   },
+  title: {
+    fontSize: '16px',
+  },
 }));
 
 function useQuery() {
@@ -99,7 +102,7 @@ export default function Download({ loading, setLoading }) {
           <div className={classes.VideoPlayer}>
             <img src={thumbnail} style={{ width: '100%', marginTop: '7px' }} />
           </div>
-          <h1>
+          <h1 className={classes.title}>
             {title === rl
               ? `You got Rick Rolled... Please Enter a valid url`
               : title}
@@ -151,7 +154,7 @@ export default function Download({ loading, setLoading }) {
         </div>
       ) : (
         <div className={classes.loading}>
-          <img src={loadingSvg} />
+          <img alt='loading' src={loadingSvg} />
           <p>Loading...</p>
         </div>
       )}
