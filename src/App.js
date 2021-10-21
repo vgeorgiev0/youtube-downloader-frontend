@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     width: '80%',
     margin: '0 auto',
+    textAlign: 'center',
   },
   title: {
     marginTop: '5%',
